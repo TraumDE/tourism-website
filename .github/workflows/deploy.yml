@@ -25,7 +25,12 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: deploy to gh-pages
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./dist
+
+      - name: Deploy to gh-pages
         uses: actions/deploy-pages@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
