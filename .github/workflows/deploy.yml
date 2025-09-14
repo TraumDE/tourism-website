@@ -10,7 +10,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js
@@ -20,3 +19,8 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build
+
+      - name: deploy to gh-pages
+        uses: actions/deploy-pages@v1
+        with:
+          publish_dir: ./dist
