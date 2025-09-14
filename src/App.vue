@@ -13,13 +13,15 @@ import AppLogo from './components/icons/AppLogo.vue'
 </template>
 
 <style lang="scss" scoped>
+@use '@/assets/styles/helpers' as *;
+
 .cont {
   width: 100px;
   height: 100px;
   background-color: aqua;
 
-  @media (--phone-small) {
-    height: 50px;
+  @include breakpoint('phone-small') {
+    width: 1000px;
   }
 }
 </style>
