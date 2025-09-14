@@ -59,6 +59,8 @@ const props = defineProps<Props>()
 .dropdown {
   $b: #{&};
 
+  color: var(--nav-link-color);
+
   font-family: 'Rajdhani';
   display: flex;
   align-items: center;

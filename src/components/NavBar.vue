@@ -10,8 +10,8 @@ import LogoItem from './LogoItem.vue'
       <AppLink text="home" dropdown-links="/" />
       <AppLink text="about us" link="/" />
       <AppLink text="services" link="/" />
-      <AppLink text="pages" link="/" />
-      <AppLink text="blog" link="/" />
+      <AppLink text="pages" dropdown-links="/" />
+      <AppLink text="blog" dropdown-links="/" />
       <AppLink text="contact us" link="/" />
     </div>
   </nav>
