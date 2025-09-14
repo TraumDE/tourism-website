@@ -11,10 +11,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    permissions: # 👇 Добавьте эту секцию!
-      pages: write
-      id-token: write
-
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js
@@ -33,6 +29,10 @@ jobs:
           path: dist/
 
   deploy:
+    permissions: # 👇 Добавьте эту секцию!
+      pages: write
+      id-token: write
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
