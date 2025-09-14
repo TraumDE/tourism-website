@@ -1,4 +1,3 @@
-import '@a1rth/css-normalize'
 import './assets/styles/main.scss'
 
 import { createApp } from 'vue'
