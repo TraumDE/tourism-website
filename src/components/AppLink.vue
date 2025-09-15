@@ -2,12 +2,19 @@
 import { RouterLink } from 'vue-router'
 import type { Link } from '@/types/link'
 
-const props = defineProps<Link>()
+interface Props extends Link {
+  isRouteLink: boolean
+}
+
+const props = defineProps<Props>()
 </script>
 <template>
-  <RouterLink class="link" :to="props.link">
+  <RouterLink v-if="props.isRouteLink" class="link" :to="props.link">
     {{ props.text }}
   </RouterLink>
+  <a v-if="!props.isRouteLink" class="link" :href="props.link">
+    {{ props.text }}
+  </a>
 </template>
 
 <style lang="scss" scoped>
