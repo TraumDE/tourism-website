@@ -36,6 +36,7 @@ const templateLinks: Link[] = [
 
 <style lang="scss" scoped>
 .nav {
+  padding-block: 17.5px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;

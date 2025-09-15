@@ -36,6 +36,7 @@ const props = defineProps<Props>()
   <div ref="elementRef" class="dropdown">
     <button
       @click="handleDropdownButton"
+      :class="{ 'dropdown__button--active': isAvtive }"
       class="dropdown__button"
       aria-haspopup="true"
       :aria-expanded="isAvtive"
@@ -73,6 +74,10 @@ const props = defineProps<Props>()
     gap: 5px;
     text-transform: uppercase;
 
+    &--active {
+      color: var(--accent-color);
+    }
+
     &:active {
       color: var(--accent-color);
     }
@@ -90,6 +95,10 @@ const props = defineProps<Props>()
     border-top: 6px solid var(--nav-link-color);
 
     #{$button}:active & {
+      border-top: 6px solid var(--accent-color);
+    }
+
+    #{$button}--active & {
       border-top: 6px solid var(--accent-color);
     }
   }
@@ -125,11 +134,6 @@ const props = defineProps<Props>()
 
     &:hover {
       background-color: #f1f1f1;
-    }
-
-    &:active {
-      background-color: var(--accent-color);
-      color: #ffffff;
     }
   }
 }
