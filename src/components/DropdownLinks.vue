@@ -104,6 +104,7 @@ const props = defineProps<Props>()
   }
 
   &__menu {
+    margin-top: 37px;
     position: absolute;
     background-color: #ffffff;
     box-shadow: 0 12px 97px 12px rgba(0, 0, 0, 0.15);
