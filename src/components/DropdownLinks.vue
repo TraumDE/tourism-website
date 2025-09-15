@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { Link } from '@/types/link'
 import { onMounted, onUnmounted, ref } from 'vue'
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRoute } from 'vue-router'
 
 interface Props {
   text: string
@@ -10,6 +10,8 @@ interface Props {
 
 const elementRef = ref<HTMLElement | null>(null)
 const isAvtive = ref<boolean>(false)
+
+const route = useRoute()
 
 const handleDropdownButton = (): void => {
   isAvtive.value = !isAvtive.value
@@ -44,7 +46,11 @@ const props = defineProps<Props>()
     </button>
     <ul v-show="isAvtive" class="dropdown__menu" :id="props.text + '-menu'" role="menu">
       <li role="menuitem" class="dropdown__item" v-for="link in props.links" :key="link.link">
-        <RouterLink class="dropdown__link" :to="link.link">
+        <RouterLink
+          :class="{ 'dropdown__link--active': route.path === link.link }"
+          class="dropdown__link"
+          :to="link.link"
+        >
           {{ link.text }}
         </RouterLink>
       </li>
@@ -96,6 +102,8 @@ const props = defineProps<Props>()
   }
 
   &__link {
+    $b: #{&};
+
     color: var(--nav-link-color);
     font-family: 'Rajdhani';
     text-decoration: none;
@@ -105,6 +113,15 @@ const props = defineProps<Props>()
     padding-left: 20px;
     width: 100%;
     height: 100%;
+
+    &--active {
+      background-color: var(--accent-color);
+      color: #ffffff;
+
+      &:hover {
+        background-color: var(--accent-color) !important;
+      }
+    }
 
     &:hover {
       background-color: #f1f1f1;

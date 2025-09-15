@@ -6,16 +6,16 @@ import type { Link } from '@/types/link'
 
 const templateLinks: Link[] = [
   {
-    text: 'aboba',
-    link: '/',
+    text: 'Extreme Surfing',
+    link: '/extreme-surfing',
   },
   {
-    text: 'Trinagle',
-    link: '/',
+    text: 'Kayaking',
+    link: '/kayaking',
   },
   {
-    text: 'Adron',
-    link: '/',
+    text: 'Scuba Diving',
+    link: '/scuba-diving',
   },
 ]
 </script>

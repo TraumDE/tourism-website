@@ -1,9 +1,7 @@
-<script lang="ts" setup>
-import NavBar from '../components/NavBar.vue'
-</script>
+<script lang="ts" setup></script>
 
 <template>
-  <NavBar />
+  <h1>Kayaking</h1>
 </template>
 
 <style lang="scss" scoped></style>
