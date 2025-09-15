@@ -1,37 +1,13 @@
 <script lang="ts" setup>
 import { RouterLink } from 'vue-router'
+import type { Link } from '@/types/link'
 
-// interface DropdownLink {
-//   text: string
-//   link: string
-// }
-
-interface BaseProps {
-  text: string
-}
-
-interface LinkProps extends BaseProps {
-  link: string
-  dropdownLinks?: never
-}
-
-interface DropdownProps extends BaseProps {
-  dropdownLinks: string
-  link?: never
-}
-
-type Props = LinkProps | DropdownProps
-
-const props = defineProps<Props>()
+const props = defineProps<Link>()
 </script>
 <template>
-  <RouterLink class="link" v-if="props.link" :to="props.link">
+  <RouterLink class="link" :to="props.link">
     {{ props.text }}
   </RouterLink>
-  <button class="dropdown" v-if="props.dropdownLinks" aria-haspopup="listbox">
-    {{ props.text }}
-    <div class="dropdown__icon"></div>
-  </button>
 </template>
 
 <style lang="scss" scoped>
@@ -41,6 +17,7 @@ const props = defineProps<Props>()
   font-size: 18px;
   color: var(--nav-link-color);
   text-transform: uppercase;
+  text-wrap: nowrap;
   text-decoration: none;
 
   &--active {
@@ -56,7 +33,7 @@ const props = defineProps<Props>()
   }
 }
 
-.dropdown {
+.dropdown__button {
   $b: #{&};
 
   color: var(--nav-link-color);
